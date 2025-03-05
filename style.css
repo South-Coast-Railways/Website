@@ -30,9 +30,17 @@ body {
   }
   
   .logo img {
-    height: 40px; /* Adjust height as needed */
+    height: 40px; /* Adjust as needed */
     width: auto;  /* Maintains aspect ratio */
-    align-self: center;
+  }
+
+  .logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.5rem; /* Adjust for balance */
+    font-weight: bold;
   }
 
 .navbar {
