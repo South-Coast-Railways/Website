@@ -12,12 +12,11 @@ app.use(express.json());
 app.post('/', async (req, res) => {
     try {
         // Send the received data to Discord
-        const response = await axios.post(webhookURL, {
-            content: JSON.stringify(req.body), // Send raw data
-        }, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
+        const response = await axios({
+            method: 'POST',
+            url: webhookURL,
+            data: { content: JSON.stringify(req.body) },
+            headers: { 'Content-Type': 'application/json' }
         });
 
         res.send('Success');
