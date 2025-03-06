@@ -135,8 +135,13 @@ body {
   gap: 20px; /* Adjust spacing between image and text */
 }
 
-.hero2 .img {
+.hero2 .img_square_circle {
   flex-shrink: 0;
+  width: 150px; /* Adjust the size as needed */
+    height: 150px; /* Ensure it remains a square */
+    border-radius: 20px; /* Adjust for rounded corners */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    display: block
 }
 
 .hero h2 {
