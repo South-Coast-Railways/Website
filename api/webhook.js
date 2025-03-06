@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const cors = require('cors'); // Importing the CORS middleware
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 // Set your Discord webhook URL
 const webhookURL = 'https://discord.com/api/webhooks/1137796062044749894/ugJ72eN5li6jbb2PwFBFIqB4akfyJtuqNFru6rWAbCx0GsiMjMXZoDmNK6GYJZB7Raag';
