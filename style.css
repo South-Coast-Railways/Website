@@ -129,8 +129,22 @@ body {
   color: #fff;
 }
 
+.hero2 {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Adjust spacing between image and text */
+}
+
+.hero2 .img {
+  flex-shrink: 0;
+}
 
 .hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero2 h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
