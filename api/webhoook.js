@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors'); // Importing the CORS middleware
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -9,7 +10,13 @@ const webhookURL = 'https://discord.com/api/webhooks/1137796062044749894/ugJ72eN
 // Middleware to parse raw JSON body
 app.use(express.json());
 
+// Enable CORS (Cross-Origin Resource Sharing)
+app.use(cors()); // This allows cross-origin requests
+
+// Handle POST requests to the root
 app.post('/', async (req, res) => {
+    console.log(`Received a POST request with data: ${JSON.stringify(req.body)}`);
+    
     try {
         // Send the received data to Discord
         const response = await axios({
@@ -26,6 +33,13 @@ app.post('/', async (req, res) => {
     }
 });
 
+// Handle non-POST methods (just as a fallback)
+app.all('/', (req, res) => {
+    console.log(`Received a ${req.method} request on the root endpoint`);
+    res.status(405).send(`HTTP ${req.method} is not allowed. Please use POST.`);
+});
+
+// Start the server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
