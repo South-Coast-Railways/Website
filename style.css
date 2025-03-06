@@ -120,9 +120,15 @@ body {
 
 
 .hero-section .hero {
+  max-width: 50%;
+  color: #fff;
+}
+
+.hero-section .hero2 {
   max-width: 90%;
   color: #fff;
 }
+
 
 .hero h2 {
   font-size: 2.5rem;
