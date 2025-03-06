@@ -16,7 +16,7 @@ app.use(cors()); // This allows cross-origin requests
 // Handle POST requests to the root
 app.post('/', async (req, res) => {
     console.log(`Received a POST request with data: ${JSON.stringify(req.body)}`);
-    
+
     try {
         // Send the received data to Discord
         const response = await axios({
@@ -37,6 +37,12 @@ app.post('/', async (req, res) => {
 app.all('/', (req, res) => {
     console.log(`Received a ${req.method} request on the root endpoint`);
     res.status(405).send(`HTTP ${req.method} is not allowed. Please use POST.`);
+});
+
+// Catch-all route for all unsupported methods
+app.all('*', (req, res) => {
+    console.log(`Unsupported method: ${req.method} for ${req.originalUrl}`);
+    res.status(405).send('Method Not Allowed');
 });
 
 // Start the server
